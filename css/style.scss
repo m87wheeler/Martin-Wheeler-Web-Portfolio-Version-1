@@ -1056,81 +1056,67 @@ body {
   letter-spacing: 0.2rem;
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
   #landing-page {
+    .logo-container {
+      top: 1.25rem;
+    }
+
+    h1 {
+      top: 60vh;
+    }
+
     .view-portfolio {
-      cursor: pointer;
+      top: 80vh;
+    }
+
+    .view-portfolio-shadow {
+      top: calc(80vh + 5px);
     }
   }
+
   #site-body {
-    width: 100%;
-    height: 100vh;
-    min-height: 100vh;
+    header {
+      margin-bottom: 35px;
+
+      .main-nav {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 50;
+
+        .dropdown-back {
+          height: calc(100vh -70px);
+        }
+      }
+    }
 
     main {
-      section {
-        .section-paragraph {
-          width: 50%;
-          margin-left: 25%;
-        }
-      }
+      width: 90%;
+      margin: 0 5%;
+      #projects {
+        width: 100%;
+        height: auto;
 
-      #stack {
-        width: 60%;
-        margin: 0 auto;
-
-        .stack-paragraph {
-          width: 83%;
-          margin-left: 8.5%;
-        }
-      }
-
-      #portfolio {
-        display: flex;
-        flex-direction: column;
-
-        .project-holder {
-          position: relative;
-          width: 90%;
-          height: 28rem;
-          margin-bottom: 2rem;
-          margin-left: 5%;
-          overflow: hidden;
-
+        #projects-container {
           .project-container {
-            .project-title {
-              font-size: 1.2rem;
-            }
-            .project-text {
-              .visit-page {
-                transition: padding 0.3s ease-in-out;
-              }
-              .visit-page:hover {
-                padding-bottom: 0.5rem;
-              }
-            }
-          }
+            width: 28rem;
+            height: 15.75rem;
+            padding: 0;
+            margin: 0 auto;
 
-          .project-container:hover {
+            .project-blurb {
+              font-size: 1rem;
+              line-height: 1.5rem;
+            }
           }
         }
       }
     }
-    footer {
-      .back-to-top {
-        cursor: pointer;
-      }
-    }
-  }
 
-  .coming-soon {
-    margin-left: 25%;
-    width: 50%;
-    padding: 4rem 1rem;
+    footer {
+      margin-top: 5rem;
+    }
   }
 }

@@ -1223,61 +1223,51 @@ body {
   letter-spacing: 0.2rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
+  #landing-page .logo-container {
+    top: 1.25rem;
+  }
+  #landing-page h1 {
+    top: 60vh;
+  }
   #landing-page .view-portfolio {
-    cursor: pointer;
+    top: 80vh;
   }
-  #site-body {
+  #landing-page .view-portfolio-shadow {
+    top: calc(80vh + 5px);
+  }
+  #site-body header {
+    margin-bottom: 35px;
+  }
+  #site-body header .main-nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 50;
+  }
+  #site-body header .main-nav .dropdown-back {
+    height: calc(100vh -70px);
+  }
+  #site-body main {
+    width: 90%;
+    margin: 0 5%;
+  }
+  #site-body main #projects {
     width: 100%;
-    height: 100vh;
-    min-height: 100vh;
+    height: auto;
   }
-  #site-body main section .section-paragraph {
-    width: 50%;
-    margin-left: 25%;
-  }
-  #site-body main #stack {
-    width: 60%;
+  #site-body main #projects #projects-container .project-container {
+    width: 28rem;
+    height: 15.75rem;
+    padding: 0;
     margin: 0 auto;
   }
-  #site-body main #stack .stack-paragraph {
-    width: 83%;
-    margin-left: 8.5%;
+  #site-body main #projects #projects-container .project-container .project-blurb {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
-  #site-body main #portfolio {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  #site-body main #portfolio .project-holder {
-    position: relative;
-    width: 90%;
-    height: 28rem;
-    margin-bottom: 2rem;
-    margin-left: 5%;
-    overflow: hidden;
-  }
-  #site-body main #portfolio .project-holder .project-container .project-title {
-    font-size: 1.2rem;
-  }
-  #site-body main #portfolio .project-holder .project-container .project-text .visit-page {
-    -webkit-transition: padding 0.3s ease-in-out;
-    transition: padding 0.3s ease-in-out;
-  }
-  #site-body main #portfolio .project-holder .project-container .project-text .visit-page:hover {
-    padding-bottom: 0.5rem;
-  }
-  #site-body footer .back-to-top {
-    cursor: pointer;
-  }
-  .coming-soon {
-    margin-left: 25%;
-    width: 50%;
-    padding: 4rem 1rem;
+  #site-body footer {
+    margin-top: 5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

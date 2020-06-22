@@ -1225,7 +1225,7 @@ body {
 
 @media (min-width: 576px) {
   #landing-page .logo-container {
-    top: 3rem;
+    top: 1rem;
   }
   #landing-page h1 {
     display: none;

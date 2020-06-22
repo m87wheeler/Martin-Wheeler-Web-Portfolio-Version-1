@@ -1060,19 +1060,19 @@ body {
 @media (min-width: 576px) {
   #landing-page {
     .logo-container {
-      top: 1.25rem;
+      top: 3rem;
     }
 
     h1 {
-      top: 60vh;
+      display: none;
     }
 
     .view-portfolio {
-      top: 80vh;
+      top: 70vh;
     }
 
     .view-portfolio-shadow {
-      top: calc(80vh + 5px);
+      top: calc(70vh + 5px);
     }
   }
 

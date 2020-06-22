@@ -1225,16 +1225,16 @@ body {
 
 @media (min-width: 576px) {
   #landing-page .logo-container {
-    top: 1.25rem;
+    top: 3rem;
   }
   #landing-page h1 {
-    top: 60vh;
+    display: none;
   }
   #landing-page .view-portfolio {
-    top: 80vh;
+    top: 70vh;
   }
   #landing-page .view-portfolio-shadow {
-    top: calc(80vh + 5px);
+    top: calc(70vh + 5px);
   }
   #site-body header {
     margin-bottom: 35px;

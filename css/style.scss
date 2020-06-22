@@ -177,6 +177,10 @@ body {
         transform: rotate(180deg);
       }
     }
+
+    .logo-letters-large {
+      display: none;
+    }
   }
 
   h1 {
@@ -1126,5 +1130,174 @@ body {
     footer {
       margin-top: 5rem;
     }
+  }
+}
+
+// Medium devices (portrait tablets, 768px and up)
+@media (min-width: 768px) {
+  #landing-page {
+    .logo-container {
+      top: 15vh;
+      width: 400px;
+      height: 400px;
+
+      .logo-shape {
+        left: 10px;
+        height: 190px;
+      }
+
+      .green-semi {
+        top: 200px;
+        width: 380px;
+        border-bottom-left-radius: 190px;
+        border-bottom-right-radius: 190px;
+      }
+      .orange-semi-lg {
+        top: 10px;
+        width: 380px;
+        border-top-left-radius: 190px;
+        border-top-right-radius: 190px;
+
+        .orange-semi-sm {
+          top: 40px;
+          left: 40px;
+          width: 300px;
+          height: 150px;
+          border-top-left-radius: 190px;
+          border-top-right-radius: 190px;
+        }
+      }
+      .grey-semi {
+        width: 190px;
+        height: 190px;
+        top: 10px;
+        left: 200px;
+        border-top-right-radius: 190px;
+        z-index: 4;
+      }
+
+      .logo-letters {
+        .letter-1 {
+        }
+
+        .letter-2 {
+        }
+      }
+
+      .logo-letters {
+        display: none;
+      }
+
+      .logo-letters-large {
+        display: block;
+        position: absolute;
+        width: 196px;
+        height: 274px;
+        top: 66px;
+        left: 104px;
+        transform: rotateX(180deg);
+        transform-origin: center;
+        opacity: 0;
+        z-index: 7;
+        animation-name: rotate-text;
+        animation-duration: 1s;
+        animation-delay: 1.75s;
+        animation-fill-mode: forwards;
+
+        .letter {
+          position: absolute;
+        }
+        .letter-1 {
+          top: 0;
+          left: 0;
+        }
+        .letter-2 {
+          top: 116px;
+          left: 54px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    h1 {
+      display: block;
+      top: 65vh;
+
+      .header-lg {
+        font-size: 2rem;
+      }
+      .header-sm {
+        font-size: 1.1rem;
+      }
+    }
+
+    .view-portfolio {
+      top: 80vh;
+      width: 15rem;
+      height: 4.5rem;
+
+      .view-portfolio-text {
+        font-size: 1.25rem;
+      }
+    }
+
+    .view-portfolio::before {
+      display: block;
+      border-right: 1.8rem solid $darkOrange;
+      border-top: 0.9rem solid transparent;
+      border-bottom: 0.9rem solid transparent;
+    }
+
+    .view-portfolio-shadow {
+      top: calc(80vh + 5px);
+      width: calc(15rem + 10px);
+      height: 4.5rem;
+    }
+
+    .view-portfolio-shadow::before {
+      display: block;
+      top: 92%;
+      border-right: calc(2.4rem) solid $grey;
+      border-top: calc(1.2rem) solid transparent;
+      border-bottom: calc(1.2rem) solid transparent;
+    }
+  }
+
+  #site-body {
+    main {
+      width: 70%;
+      margin-left: 15%;
+    }
+
+    #projects {
+      width: 100%;
+      height: auto;
+
+      #projects-container {
+        .project-container {
+          .project-blurb {
+            font-size: 1.25rem;
+          }
+
+          .project-link {
+            a {
+              width: 15rem;
+              line-height: 2rem;
+              font-size: 1.25rem;
+              padding: 0.25rem 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      height: 20vh;
+      margin-top: 0;
+    }
+  }
+  .coming-soon {
+    margin-left: 0;
+    width: 100%;
   }
 }

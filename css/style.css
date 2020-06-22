@@ -249,6 +249,10 @@ body {
           transform: rotate(180deg);
 }
 
+#landing-page .logo-container .logo-letters-large {
+  display: none;
+}
+
 #landing-page h1 {
   position: absolute;
   top: 50vh;
@@ -1274,6 +1278,145 @@ body {
   }
   #site-body footer {
     margin-top: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #landing-page .logo-container {
+    top: 15vh;
+    width: 400px;
+    height: 400px;
+  }
+  #landing-page .logo-container .logo-shape {
+    left: 10px;
+    height: 190px;
+  }
+  #landing-page .logo-container .green-semi {
+    top: 200px;
+    width: 380px;
+    border-bottom-left-radius: 190px;
+    border-bottom-right-radius: 190px;
+  }
+  #landing-page .logo-container .orange-semi-lg {
+    top: 10px;
+    width: 380px;
+    border-top-left-radius: 190px;
+    border-top-right-radius: 190px;
+  }
+  #landing-page .logo-container .orange-semi-lg .orange-semi-sm {
+    top: 40px;
+    left: 40px;
+    width: 300px;
+    height: 150px;
+    border-top-left-radius: 190px;
+    border-top-right-radius: 190px;
+  }
+  #landing-page .logo-container .grey-semi {
+    width: 190px;
+    height: 190px;
+    top: 10px;
+    left: 200px;
+    border-top-right-radius: 190px;
+    z-index: 4;
+  }
+  #landing-page .logo-container .logo-letters {
+    display: none;
+  }
+  #landing-page .logo-container .logo-letters-large {
+    display: block;
+    position: absolute;
+    width: 196px;
+    height: 274px;
+    top: 66px;
+    left: 104px;
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    opacity: 0;
+    z-index: 7;
+    -webkit-animation-name: rotate-text;
+            animation-name: rotate-text;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-delay: 1.75s;
+            animation-delay: 1.75s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+  }
+  #landing-page .logo-container .logo-letters-large .letter {
+    position: absolute;
+  }
+  #landing-page .logo-container .logo-letters-large .letter-1 {
+    top: 0;
+    left: 0;
+  }
+  #landing-page .logo-container .logo-letters-large .letter-2 {
+    top: 116px;
+    left: 54px;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  #landing-page h1 {
+    display: block;
+    top: 65vh;
+  }
+  #landing-page h1 .header-lg {
+    font-size: 2rem;
+  }
+  #landing-page h1 .header-sm {
+    font-size: 1.1rem;
+  }
+  #landing-page .view-portfolio {
+    top: 80vh;
+    width: 15rem;
+    height: 4.5rem;
+  }
+  #landing-page .view-portfolio .view-portfolio-text {
+    font-size: 1.25rem;
+  }
+  #landing-page .view-portfolio::before {
+    display: block;
+    border-right: 1.8rem solid #ee681e;
+    border-top: 0.9rem solid transparent;
+    border-bottom: 0.9rem solid transparent;
+  }
+  #landing-page .view-portfolio-shadow {
+    top: calc(80vh + 5px);
+    width: calc(15rem + 10px);
+    height: 4.5rem;
+  }
+  #landing-page .view-portfolio-shadow::before {
+    display: block;
+    top: 92%;
+    border-right: calc(2.4rem) solid #476763;
+    border-top: calc(1.2rem) solid transparent;
+    border-bottom: calc(1.2rem) solid transparent;
+  }
+  #site-body main {
+    width: 70%;
+    margin-left: 15%;
+  }
+  #site-body #projects {
+    width: 100%;
+    height: auto;
+  }
+  #site-body #projects #projects-container .project-container .project-blurb {
+    font-size: 1.25rem;
+  }
+  #site-body #projects #projects-container .project-container .project-link a {
+    width: 15rem;
+    line-height: 2rem;
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+  #site-body footer {
+    height: 20vh;
+    margin-top: 0;
+  }
+  .coming-soon {
+    margin-left: 0;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */

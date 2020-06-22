@@ -1071,8 +1071,16 @@ body {
       top: 70vh;
     }
 
+    .view-portfolio:before {
+      display: none;
+    }
+
     .view-portfolio-shadow {
       top: calc(70vh + 5px);
+    }
+
+    .view-portfolio-shadow:before {
+      display: none;
     }
   }
 

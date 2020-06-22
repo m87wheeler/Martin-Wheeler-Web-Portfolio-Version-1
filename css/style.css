@@ -1233,8 +1233,14 @@ body {
   #landing-page .view-portfolio {
     top: 70vh;
   }
+  #landing-page .view-portfolio:before {
+    display: none;
+  }
   #landing-page .view-portfolio-shadow {
     top: calc(70vh + 5px);
+  }
+  #landing-page .view-portfolio-shadow:before {
+    display: none;
   }
   #site-body header {
     margin-bottom: 35px;

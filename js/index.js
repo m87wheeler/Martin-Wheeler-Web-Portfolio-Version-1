@@ -121,6 +121,17 @@ if (document.querySelector("#blog-posts") !== null) {
           NAVBAR.style.top = "-70px"
           NAV_BUTTON.style.opacity = "0"
         }
+      } else {
+        let logo = document.querySelector(".logo-container")
+        let nav = document.querySelector(".nav-background")
+        if (
+          logo.getBoundingClientRect().bottom <
+          nav.getBoundingClientRect().bottom
+        ) {
+          SMALL_LOGO.style.opacity = "1"
+        } else {
+          SMALL_LOGO.style.opacity = "0"
+        }
       }
     },
     false
@@ -408,7 +419,7 @@ const randomColor = elem => {
 const generateColorDots = parent => {
   let containerWidth = parent.clientWidth
   let containerHeight = parent.clientHeight
-  console.log("W:" + containerWidth, "H:" + containerHeight)
+  // console.log("W:" + containerWidth, "H:" + containerHeight)
 
   const dotDimensions = {
     height: 20,
@@ -426,9 +437,9 @@ const generateColorDots = parent => {
   let yDots = Math.floor(containerHeight / dotDimensions.totalHeight())
   let totalDots = xDots * yDots
 
-  console.log(`Dots horizontally: ${xDots}`)
-  console.log(`Dots vertically: ${yDots}`)
-  console.log(`Total Dots: ${totalDots}`)
+  // console.log(`Dots horizontally: ${xDots}`)
+  // console.log(`Dots vertically: ${yDots}`)
+  // console.log(`Total Dots: ${totalDots}`)
 
   let dotContainer = document.createElement("div")
   dotContainer.classList.add("dot-container")

@@ -1117,6 +1117,7 @@ body {
   width: 70px;
   height: 70px;
   background: #ee681e;
+  cursor: pointer;
   z-index: 1;
 }
 
@@ -1529,6 +1530,9 @@ body {
   }
   #site-body header .main-nav .nav-background .small-logo-container {
     opacity: 0;
+  }
+  #site-body main section .section-paragraph {
+    line-height: 2.5rem;
   }
   #site-body main #about {
     position: relative;

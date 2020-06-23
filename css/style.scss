@@ -982,6 +982,7 @@ body {
       width: 70px;
       height: 70px;
       background: $darkOrange;
+      cursor: pointer;
       z-index: 1;
 
       .arrow-arm {
@@ -1448,6 +1449,11 @@ body {
     }
 
     main {
+      section {
+        .section-paragraph {
+          line-height: 2.5rem;
+        }
+      }
       #about {
         position: relative;
 

@@ -146,9 +146,13 @@ if (document.querySelector("#blog-posts") !== null) {
 document.querySelector(".back-to-top").addEventListener(
   "click",
   () => {
-    if (document.querySelector("#blog-posts") !== null) {
-      window.scrollTo({ top: window.innerHeight + 1, behavior: "smooth" })
-    } else if (document.querySelector("#blog-list") !== null) {
+    if (window.innerWidth < 1320) {
+      if (document.querySelector("#blog-posts") !== null) {
+        window.scrollTo({ top: window.innerHeight + 1, behavior: "smooth" })
+      } else if (document.querySelector("#blog-list") !== null) {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      }
+    } else {
       window.scrollTo({ top: 0, behavior: "smooth" })
     }
   },
@@ -157,11 +161,11 @@ document.querySelector(".back-to-top").addEventListener(
 
 // ***** animate language bars on scroll *****
 const LANGUAGE_STATS = [
-  { language: "HTML", score: 7 },
-  { language: "CSS", score: 7 },
-  { language: "JavaScript", score: 6 },
-  { language: "React", score: 5 },
-  { language: "Node.js", score: 2 },
+  { language: "HTML", score: 8 },
+  { language: "S/CSS", score: 8 },
+  { language: "JavaScript", score: 7 },
+  { language: "React", score: 6 },
+  // { language: "Node.js", score: 2 },
   { language: "Inkscape", score: 7 },
   { language: "Figma", score: 5 },
 ]

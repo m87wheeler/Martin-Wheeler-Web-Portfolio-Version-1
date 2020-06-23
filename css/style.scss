@@ -227,18 +227,18 @@ body {
     }
   }
 
-  .view-portfolio::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    transform: rotate(-90deg) translateY(-50%);
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-right: 1rem solid $darkOrange;
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-  }
+  // .view-portfolio::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 100%;
+  //   transform: rotate(-90deg) translateY(-50%);
+  //   left: 50%;
+  //   width: 0;
+  //   height: 0;
+  //   border-right: 1rem solid $darkOrange;
+  //   border-top: 0.5rem solid transparent;
+  //   border-bottom: 0.5rem solid transparent;
+  // }
 
   .view-portfolio-shadow {
     position: absolute;
@@ -251,18 +251,18 @@ body {
     filter: brightness(80%);
   }
 
-  .view-portfolio-shadow::before {
-    content: "";
-    position: absolute;
-    top: 98%;
-    transform: rotate(-90deg) translateY(-50%);
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-right: calc(1.2rem) solid $grey;
-    border-top: calc(0.6rem) solid transparent;
-    border-bottom: calc(0.6rem) solid transparent;
-  }
+  // .view-portfolio-shadow::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 98%;
+  //   transform: rotate(-90deg) translateY(-50%);
+  //   left: 50%;
+  //   width: 0;
+  //   height: 0;
+  //   border-right: calc(1.2rem) solid $grey;
+  //   border-top: calc(0.6rem) solid transparent;
+  //   border-bottom: calc(0.6rem) solid transparent;
+  // }
 
   .drop-line {
     position: fixed;
@@ -1079,17 +1079,17 @@ body {
       top: 70vh;
     }
 
-    .view-portfolio:before {
-      display: none;
-    }
+    // .view-portfolio:before {
+    //   display: none;
+    // }
 
     .view-portfolio-shadow {
       top: calc(70vh + 5px);
     }
 
-    .view-portfolio-shadow:before {
-      display: none;
-    }
+    // .view-portfolio-shadow:before {
+    //   display: none;
+    // }
   }
 
   #site-body {
@@ -1250,13 +1250,13 @@ body {
       height: 4.5rem;
     }
 
-    .view-portfolio-shadow::before {
-      display: block;
-      top: 92%;
-      border-right: calc(2.4rem) solid $grey;
-      border-top: calc(1.2rem) solid transparent;
-      border-bottom: calc(1.2rem) solid transparent;
-    }
+    // .view-portfolio-shadow::before {
+    //   display: block;
+    //   top: 92%;
+    //   border-right: calc(2.4rem) solid $grey;
+    //   border-top: calc(1.2rem) solid transparent;
+    //   border-bottom: calc(1.2rem) solid transparent;
+    // }
   }
 
   #site-body {

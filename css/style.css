@@ -760,88 +760,57 @@ body {
 
 #site-body main #stack {
   width: 100%;
+  height: auto;
   overflow-x: hidden;
 }
 
-#site-body main #stack .chart-container {
-  width: 95%;
-  height: auto;
-  margin: 0 2.5% 2rem;
-  overflow: hidden;
-}
-
-#site-body main #stack .chart-container .lang-container {
+#site-body main #stack .stack-container {
+  width: 50%;
+  height: inherit;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  height: 37px;
-  margin-bottom: 5px;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
 }
 
-#site-body main #stack .chart-container .lang-container .lang-title {
-  background: #ffffff;
-  width: 30%;
-  line-height: 37px;
-  font-weight: 700;
-}
-
-#site-body main #stack .chart-container .lang-container .score-placeholders {
-  width: 75%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[10];
-      grid-template-columns: repeat(10, 1fr);
-  -webkit-column-gap: 5px;
-          column-gap: 5px;
-  overflow: hidden;
-}
-
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder {
+#site-body main #stack .stack-container .lang-container {
   position: relative;
-  background: #ededed;
+  width: 80%;
+  height: calc(120px + 3rem);
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block {
+#site-body main #stack .stack-container .lang-container img {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: auto;
+  max-height: 120px;
+  background: white;
+  cursor: pointer;
+}
+
+#site-body main #stack .stack-container .lang-container p {
+  position: absolute;
+  top: 40%;
   width: 100%;
-  height: 0;
-  -webkit-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
-  z-index: 9;
-}
-
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-1,
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-2,
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-3 {
-  background: #aeb974;
-}
-
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-4,
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-5,
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-6 {
-  background: #f1db7b;
-}
-
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-7,
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-8,
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-9 {
-  background: #f6c57f;
-}
-
-#site-body main #stack .chart-container .lang-container .score-placeholders .placeholder .score-block-10 {
-  background: #ec7d42;
-}
-
-#site-body main #stack .chart-container .lang-container:last-of-type {
-  margin-bottom: 0;
+  opacity: 0;
+  font-weight: 700;
+  padding: 0.5rem 0 2rem;
+  font-size: 1.5rem;
+  color: rgba(5, 7, 9, 0.8);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 #site-body #projects {
@@ -1232,6 +1201,18 @@ body {
   #site-body main {
     width: 90%;
     margin: 0 5%;
+  }
+  #site-body main #stack .stack-container {
+    width: 80%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #site-body main #stack .stack-container .lang-container {
+    width: 30%;
   }
   #site-body main #projects {
     width: 100%;

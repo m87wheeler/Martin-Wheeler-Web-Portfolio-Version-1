@@ -478,3 +478,16 @@ const onResize = () => {
   }
 }
 window.onresize = onResize
+
+// ***** show language text on click *****
+const languageContainers = document.querySelectorAll(".lang-container")
+languageContainers.forEach(container => {
+  container.addEventListener(
+    "click",
+    () => {
+      container.children[1].style.top = "120px"
+      container.children[1].style.opacity = "1"
+    },
+    false
+  )
+})

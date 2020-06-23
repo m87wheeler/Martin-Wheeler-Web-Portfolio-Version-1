@@ -90,13 +90,15 @@ NAV_BUTTON.addEventListener(
 window.addEventListener(
   "scroll",
   () => {
-    navOpen
-      ? ((navOpen = !navOpen),
-        navDropdown(navOpen),
-        document
-          .querySelectorAll(".bar")
-          .forEach(bar => bar.classList.remove("open")))
-      : null
+    if (window.innerWidth < 1320) {
+      navOpen
+        ? ((navOpen = !navOpen),
+          navDropdown(navOpen),
+          document
+            .querySelectorAll(".bar")
+            .forEach(bar => bar.classList.remove("open")))
+        : null
+    }
   },
   false
 )
@@ -109,14 +111,16 @@ if (document.querySelector("#blog-posts") !== null) {
   document.addEventListener(
     "scroll",
     () => {
-      if (window.scrollY > WINDOW_HEIGHT) {
-        SMALL_LOGO.style.opacity = "1"
-        NAVBAR.style.top = "0"
-        NAV_BUTTON.style.opacity = "1"
-      } else {
-        SMALL_LOGO.style.opacity = "0"
-        NAVBAR.style.top = "-70px"
-        NAV_BUTTON.style.opacity = "0"
+      if (window.innerWidth < 1320) {
+        if (window.scrollY > WINDOW_HEIGHT) {
+          SMALL_LOGO.style.opacity = "1"
+          NAVBAR.style.top = "0"
+          NAV_BUTTON.style.opacity = "1"
+        } else {
+          SMALL_LOGO.style.opacity = "0"
+          NAVBAR.style.top = "-70px"
+          NAV_BUTTON.style.opacity = "0"
+        }
       }
     },
     false
@@ -383,3 +387,79 @@ window.addEventListener(
   },
   false
 )
+
+// ***** landing page container *****
+const landingPage = document.querySelector("#landing-page")
+
+// ***** pass random color to element from predefined array *****
+const randomColor = elem => {
+  let colors = [
+    "#476763",
+    "#ee681e",
+    "#ec7d42",
+    "#f6c57f",
+    "#aeb974",
+    "#f1db7b",
+  ]
+  elem.style.background = colors[Math.floor(Math.random() * colors.length)]
+}
+
+// ***** create color dots on laptop/desktop screen *****
+const generateColorDots = parent => {
+  let containerWidth = parent.clientWidth
+  let containerHeight = parent.clientHeight
+  console.log("W:" + containerWidth, "H:" + containerHeight)
+
+  const dotDimensions = {
+    height: 20,
+    width: 20,
+    margin: 1,
+    totalHeight: function () {
+      return this.height + this.margin * 2
+    },
+    totalWidth: function () {
+      return this.width + this.margin * 2
+    },
+  }
+
+  let xDots = Math.floor(containerWidth / dotDimensions.totalWidth())
+  let yDots = Math.floor(containerHeight / dotDimensions.totalHeight())
+  let totalDots = xDots * yDots
+
+  console.log(`Dots horizontally: ${xDots}`)
+  console.log(`Dots vertically: ${yDots}`)
+  console.log(`Total Dots: ${totalDots}`)
+
+  let dotContainer = document.createElement("div")
+  dotContainer.classList.add("dot-container")
+  parent.appendChild(dotContainer)
+
+  function createDot(dimensions) {
+    let dot = document.createElement("div")
+    dot.classList.add("color-dot")
+    dot.style.height = `${dimensions.height}px`
+    dot.style.width = `${dimensions.width}px`
+    dot.style.margin = `${dimensions.margin}px`
+    dot.addEventListener(
+      "mouseover",
+      () => {
+        randomColor(dot)
+      },
+      false
+    )
+
+    dotContainer.appendChild(dot)
+  }
+
+  for (let i = 0; i < totalDots; i++) {
+    createDot(dotDimensions)
+  }
+}
+generateColorDots(landingPage)
+
+const onResize = () => {
+  if (window.innerWidth > 1320) {
+    generateColorDots(landingPage)
+  }
+}
+window.onresize = onResize

@@ -811,6 +811,13 @@ body {
   color: rgba(5, 7, 9, 0.8);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10+ and Edge */
+  -moz-user-select: none;
+       user-select: none;
+  /* Standard syntax */
 }
 
 #site-body #projects {

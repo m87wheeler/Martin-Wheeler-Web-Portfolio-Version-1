@@ -713,101 +713,213 @@ body {
     height: auto;
 
     #projects-container {
+      width: inherit;
+      height: inherit;
+
       .project-container {
         position: relative;
-        width: 90%;
-        max-width: 750px;
-        padding-top: 50%;
-        margin: 0 5% 2rem;
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
         overflow: hidden;
 
         .background-img {
-          position: absolute;
-          top: 0;
-          left: 0;
+          position: relative;
           width: 100%;
-          height: 100%;
-          overflow: hidden;
+          height: 0;
+          padding-top: 56.25%;
+          z-index: 5;
+          background: $green;
 
           img {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            top: 5px;
+            left: 5px;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            border: 5px solid white;
+          }
+
+          .project-link {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: $darkOrange;
+            border-radius: 100%;
+            text-align: center;
+            overflow: hidden;
+            transform-origin: center;
+            transition: all 0.3s ease-in-out;
+            transform: scale(0, 0);
+
+            a {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              left: 0;
+              width: inherit;
+              height: auto;
+              color: $whiteText;
+              font-size: 0.75rem;
+              font-weight: 700;
+              text-decoration: none;
+            }
           }
         }
 
-        .slide-in-blocks {
-          background: rgba(0, 0, 0, 0.2);
+        .background-img::before {
+          content: "";
+          display: block;
           position: absolute;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 50%;
+          height: 50%;
+          background: $grey;
+        }
 
-          div {
-            position: absolute;
-            top: 0;
-            width: 50%;
-            height: 100%;
-            background: $darkOrange;
-            transition: all 0.4s ease-in-out;
-            opacity: 0.9;
-          }
-
-          .slide-in-left {
-            left: -50%;
-          }
-
-          .slide-in-right {
-            left: 100%;
-          }
+        .background-img::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 50%;
+          height: 50%;
+          background: $darkOrange;
+          z-index: -1;
         }
 
         .project-blurb {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 60%;
+          position: relative;
+          background: $green;
+          padding: 0.5rem 1rem;
           width: 100%;
-          text-align: center;
-          font-size: 0.75rem;
-          line-height: 1rem;
-          font-weight: 700;
-          color: $whiteText;
-          padding: 1.5rem 2rem;
-          opacity: 0;
-          transition: all 0.4s ease-in-out;
-        }
+          margin-top: -8rem;
+          height: 8rem;
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 4rem,
+            50% 100%,
+            50% 100%,
+            0 4rem
+          );
+          transition: margin 0.3s ease-in-out;
 
-        .project-link {
-          position: absolute;
-          top: 60%;
-          left: 0;
-          height: 40%;
-          width: 100%;
-          text-align: center;
-          opacity: 0;
-          transition: all 0.4s ease-in-out;
-
-          a {
+          .blurb-text {
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 25%;
-            height: 3rem;
-            line-height: 2.5rem;
-            width: 10rem;
-            border-radius: 1rem;
-            border: 0.25rem solid $whiteText;
-            color: $whiteText;
-            font-weight: 700;
-            text-decoration: none;
+            width: calc(100% - 2rem);
+            line-height: 1.5rem;
+            text-align: center;
           }
         }
       }
     }
   }
+
+  // #projects {
+  //   width: 100%;
+  //   height: auto;
+
+  //   #projects-container {
+  //     .project-container {
+  //       position: relative;
+  //       width: 90%;
+  //       max-width: 750px;
+  //       padding-top: 50%;
+  //       margin: 0 5% 2rem;
+  //       overflow: hidden;
+
+  //       .background-img {
+  //         position: absolute;
+  //         top: 0;
+  //         left: 0;
+  //         width: 100%;
+  //         height: 100%;
+  //         overflow: hidden;
+
+  //         img {
+  //           position: absolute;
+  //           top: 0;
+  //           left: 0;
+  //           width: 100%;
+  //         }
+  //       }
+
+  //       .slide-in-blocks {
+  //         background: rgba(0, 0, 0, 0.2);
+  //         position: absolute;
+  //         top: 0;
+  //         left: 0;
+  //         width: 100%;
+  //         height: 100%;
+
+  //         div {
+  //           position: absolute;
+  //           top: 0;
+  //           width: 50%;
+  //           height: 100%;
+  //           background: $darkOrange;
+  //           transition: all 0.4s ease-in-out;
+  //           opacity: 0.9;
+  //         }
+
+  //         .slide-in-left {
+  //           left: -50%;
+  //         }
+
+  //         .slide-in-right {
+  //           left: 100%;
+  //         }
+  //       }
+
+  //       .project-blurb {
+  //         position: absolute;
+  //         top: 0;
+  //         left: 0;
+  //         height: 60%;
+  //         width: 100%;
+  //         text-align: center;
+  //         font-size: 0.75rem;
+  //         line-height: 1rem;
+  //         font-weight: 700;
+  //         color: $whiteText;
+  //         padding: 1.5rem 2rem;
+  //         opacity: 0;
+  //         transition: all 0.4s ease-in-out;
+  //       }
+
+  //       .project-link {
+  //         position: absolute;
+  //         top: 60%;
+  //         left: 0;
+  //         height: 40%;
+  //         width: 100%;
+  //         text-align: center;
+  //         opacity: 0;
+  //         transition: all 0.4s ease-in-out;
+
+  //         a {
+  //           position: absolute;
+  //           left: 50%;
+  //           transform: translateX(-50%);
+  //           top: 25%;
+  //           height: 3rem;
+  //           line-height: 2.5rem;
+  //           width: 10rem;
+  //           border-radius: 1rem;
+  //           border: 0.25rem solid $whiteText;
+  //           color: $whiteText;
+  //           font-weight: 700;
+  //           text-decoration: none;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   #blog-posts,
   #blog-list {

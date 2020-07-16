@@ -159,48 +159,8 @@ document.querySelector(".back-to-top").addEventListener(
   false
 )
 
-// ***** animate language bars on scroll *****
-const LANGUAGE_STATS = [
-  { language: "HTML", score: 8 },
-  { language: "S/CSS", score: 8 },
-  { language: "JavaScript", score: 7 },
-  { language: "React", score: 6 },
-  // { language: "Node.js", score: 2 },
-  { language: "Inkscape", score: 7 },
-  { language: "Figma", score: 5 },
-]
-
-const PLACEHOLDERS = document.querySelectorAll(".placeholder")
-if (PLACEHOLDERS.length > 0) {
-  let j = 0
-  LANGUAGE_STATS.forEach(lang => {
-    for (let i = 0; i < lang.score; i++) {
-      const SCORE_BLOCK = document.createElement("div")
-      SCORE_BLOCK.classList.add("score-block")
-      SCORE_BLOCK.classList.add(`score-block-${i + 1}`)
-      PLACEHOLDERS[j].appendChild(SCORE_BLOCK)
-      j++
-    }
-    j += 10 - lang.score
-  })
-}
-
-window.addEventListener(
-  "scroll",
-  () => {
-    const SCORE_BLOCKS = document.querySelectorAll(".score-block")
-    if (window.scrollY >= 900) {
-      SCORE_BLOCKS.forEach((elem, i) => {
-        setTimeout(() => {
-          elem.style.height = "100%"
-        }, i * 40)
-      })
-    }
-  },
-  false
-)
-
 // ***** dynamic class based on img orientation *****
+// ** adds correct class to image to ensure correct orientation display **
 const imgOrientation = imgURL => {
   const img = new Image()
   img.src = imgURL
@@ -213,21 +173,36 @@ const imgOrientation = imgURL => {
   }
 }
 
-// ***** dynamically generate blog post windows *****
+// ***** dynamically generate project post windows *****
 const projectPostArray = []
-const createProjectWIndow = (post, containerId) => {
+const createProjectWindow = (post, containerId) => {
   let projectContainer = document.createElement("div")
   projectContainer.classList.add("project-container")
+  // projectContainer.addEventListener(
+  //   "click",
+  //   () => {
+  //     projectContainer.children[1].children[0].style.left = "0"
+  //     projectContainer.children[1].children[1].style.left = "50%"
+  //     setTimeout(() => {
+  //       projectContainer.children[2].style.opacity = "1"
+  //       projectContainer.children[3].style.opacity = "1"
+  //     }, 250)
+  //   },
+  //   false
+  // )
   projectContainer.addEventListener(
     "click",
     () => {
-      projectContainer.children[1].children[0].style.left = "0"
-      projectContainer.children[1].children[1].style.left = "50%"
+      projectContainer.children[2].style.marginTop = "0"
       setTimeout(() => {
-        projectContainer.children[2].style.opacity = "1"
-        projectContainer.children[3].style.opacity = "1"
-      }, 250)
+        projectContainer.children[0].children[1].style.transform =
+          "scale(1.2, 1.2)"
+        setTimeout(() => {
+          projectContainer.children[0].children[1].style.transform = "none"
+        }, 220)
+      }, 200)
     },
+
     false
   )
 
@@ -238,6 +213,15 @@ const createProjectWIndow = (post, containerId) => {
   let backgroundImg = document.createElement("img")
   backgroundImg.src = post.metadata.projectimage.imgix_url
   backgroundImgContainer.appendChild(backgroundImg)
+
+  let projectLinkContainer = document.createElement("div")
+  projectLinkContainer.classList.add("project-link")
+  backgroundImgContainer.appendChild(projectLinkContainer)
+
+  let projectLink = document.createElement("a")
+  projectLink.innerText = "Visit Website"
+  projectLink.href = post.metadata.projectlink
+  projectLinkContainer.appendChild(projectLink)
 
   let slideInContainer = document.createElement("div")
   slideInContainer.classList.add("slide-in-blocks")
@@ -253,17 +237,12 @@ const createProjectWIndow = (post, containerId) => {
 
   let projectBlurb = document.createElement("div")
   projectBlurb.classList.add("project-blurb")
-  projectBlurb.innerText = post.metadata.projectblurb
   projectContainer.appendChild(projectBlurb)
 
-  let projectLinkContainer = document.createElement("div")
-  projectLinkContainer.classList.add("project-link")
-  projectContainer.appendChild(projectLinkContainer)
-
-  let projectLink = document.createElement("a")
-  projectLink.innerText = "Visit Website"
-  projectLink.href = post.metadata.projectlink
-  projectLinkContainer.appendChild(projectLink)
+  let blurbText = document.createElement("p")
+  blurbText.classList.add("blurb-text")
+  blurbText.innerText = post.metadata.projectblurb
+  projectBlurb.appendChild(blurbText)
 
   document.querySelector(containerId).appendChild(projectContainer)
   projectPostArray.push(projectContainer)
@@ -350,19 +329,14 @@ const createPostWindow = (post, containerId) => {
 const KEY = "N6C2ydBXJRnJGr5xKPQfW16ea2qANsnZoNgLzW5hXvAUIjN8FY"
 
 // ***** fetch project data *****
-const PROJECT_ENDPOINT = `https://api.cosmicjs.com/v1/mwwdd-blog/object/blue-interiors?pretty=true&hide_metafields=true&read_key=${KEY}&props=slug,title,content,metadata,`
+const PROJECT_ENDPOINT = `https://api.cosmicjs.com/v1/mwwdd-blog/objects?pretty=true&hide_metafields=true&type=projects&read_key=${KEY}&limit=20&props=slug,title,content,metadata,`
 const fetchProjectData = () => {
   fetch(PROJECT_ENDPOINT)
     .then(res => res.json())
     .then(data => {
-      if (data.length > 1) {
-        data.objects.forEach(obj => {
-          createProjectWIndow(obj, "#projects-container")
-        })
-      } else {
-        createProjectWIndow(data.object, "#projects-container")
-        // console.log(data.object)
-      }
+      data.objects.forEach(obj =>
+        createProjectWindow(obj, "#projects-container")
+      )
     })
     .catch(err => console.log("Error:", err))
 }
@@ -394,10 +368,8 @@ window.addEventListener(
   "scroll",
   () => {
     projectPostArray.forEach(post => {
-      post.children[1].children[0].style.left = "-50%"
-      post.children[1].children[1].style.left = "100%"
-      post.children[2].style.opacity = "0"
-      post.children[3].style.opacity = "0"
+      post.children[2].style.marginTop = "-8rem"
+      post.children[0].children[1].style.transform = "scale(0, 0)"
     })
   },
   false

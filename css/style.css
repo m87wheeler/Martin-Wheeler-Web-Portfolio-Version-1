@@ -765,23 +765,23 @@ body {
 }
 
 #site-body main #stack .stack-container {
-  width: 50%;
+  width: 100%;
   height: inherit;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: no-wrap;
-      flex-wrap: no-wrap;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #site-body main #stack .stack-container .lang-container {
   position: relative;
-  width: 80%;
+  width: 50%;
   height: calc(120px + 3rem);
   margin: 0 auto;
   text-align: center;
@@ -812,11 +812,12 @@ body {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   /* Safari */
   -ms-user-select: none;
   /* IE 10+ and Edge */
-  -moz-user-select: none;
-       user-select: none;
+  user-select: none;
   /* Standard syntax */
 }
 
@@ -868,8 +869,6 @@ body {
   overflow: hidden;
   -webkit-transform-origin: center;
           transform-origin: center;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   -webkit-transform: scale(0, 0);
           transform: scale(0, 0);
 }
@@ -886,6 +885,51 @@ body {
   font-size: 0.75rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+@-webkit-keyframes visit-pop {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  99% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@keyframes visit-pop {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  99% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+#site-body #projects #projects-container .project-container .background-img .project-link-pop {
+  -webkit-animation-name: visit-pop;
+          animation-name: visit-pop;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 #site-body #projects #projects-container .project-container .background-img::before {
@@ -1542,25 +1586,31 @@ body {
     width: 60%;
     margin: 0 20% 5rem;
   }
-  #site-body #projects {
-    width: 100%;
-    height: auto;
+  #site-body #projects #projects-container {
+    height: 40rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: blue;
   }
   #site-body #projects #projects-container .project-container {
-    cursor: pointer;
-    opacity: 1;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;
+    height: 20rem;
+    overflow: scroll;
+  }
+  #site-body #projects #projects-container .project-container .background-img .project-link a {
+    line-height: 0.75rem;
   }
   #site-body #projects #projects-container .project-container .project-blurb {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-  #site-body #projects #projects-container .project-container .project-link a {
-    font-size: 1.25rem;
-  }
-  #site-body #projects #projects-container .project-container:hover {
-    opacity: 0.9;
+    margin-top: 0rem;
   }
   #site-body footer {
     height: 20vh;

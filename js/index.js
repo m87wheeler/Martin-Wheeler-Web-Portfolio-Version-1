@@ -178,29 +178,11 @@ const projectPostArray = []
 const createProjectWindow = (post, containerId) => {
   let projectContainer = document.createElement("div")
   projectContainer.classList.add("project-container")
-  // projectContainer.addEventListener(
-  //   "click",
-  //   () => {
-  //     projectContainer.children[1].children[0].style.left = "0"
-  //     projectContainer.children[1].children[1].style.left = "50%"
-  //     setTimeout(() => {
-  //       projectContainer.children[2].style.opacity = "1"
-  //       projectContainer.children[3].style.opacity = "1"
-  //     }, 250)
-  //   },
-  //   false
-  // )
   projectContainer.addEventListener(
     "click",
     () => {
       projectContainer.children[2].style.marginTop = "0"
-      setTimeout(() => {
-        projectContainer.children[0].children[1].style.transform =
-          "scale(1.2, 1.2)"
-        setTimeout(() => {
-          projectContainer.children[0].children[1].style.transform = "none"
-        }, 220)
-      }, 200)
+      projectContainer.children[0].children[1].classList.add("project-link-pop")
     },
 
     false
@@ -369,7 +351,7 @@ window.addEventListener(
   () => {
     projectPostArray.forEach(post => {
       post.children[2].style.marginTop = "-8rem"
-      post.children[0].children[1].style.transform = "scale(0, 0)"
+      post.children[0].children[1].classList.remove("project-link-pop")
     })
   },
   false

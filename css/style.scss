@@ -1320,8 +1320,9 @@ body {
 // Laptop devices (portrait tablets, 1320px and up)
 @media (min-width: 1320px) {
   #landing-page {
-    height: calc(37.5vh + 70px);
+    height: calc(37.5vh + 80px);
     background: transparent;
+    overflow: hidden;
 
     .logo-container {
       top: calc(3.5vh + 70px);
@@ -1492,27 +1493,19 @@ body {
 
     #projects {
       #projects-container {
-        height: 40rem;
+        height: auto;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        background: blue;
 
         .project-container {
-          height: 20rem;
-          overflow: scroll;
+          overflow: visible;
 
-          .background-img {
-            .project-link {
-              a {
-                line-height: 0.75rem;
-              }
+          .project-link {
+            a {
+              line-height: 0.75rem;
             }
-          }
-
-          .project-blurb {
-            margin-top: 0rem;
           }
         }
       }

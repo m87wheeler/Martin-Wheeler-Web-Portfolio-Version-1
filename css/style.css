@@ -1426,8 +1426,9 @@ body {
 
 @media (min-width: 1320px) {
   #landing-page {
-    height: calc(37.5vh + 70px);
+    height: calc(37.5vh + 80px);
     background: transparent;
+    overflow: hidden;
   }
   #landing-page .logo-container {
     top: calc(3.5vh + 70px);
@@ -1587,7 +1588,7 @@ body {
     margin: 0 20% 5rem;
   }
   #site-body #projects #projects-container {
-    height: 40rem;
+    height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1600,17 +1601,12 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    background: blue;
   }
   #site-body #projects #projects-container .project-container {
-    height: 20rem;
-    overflow: scroll;
+    overflow: visible;
   }
-  #site-body #projects #projects-container .project-container .background-img .project-link a {
+  #site-body #projects #projects-container .project-container .project-link a {
     line-height: 0.75rem;
-  }
-  #site-body #projects #projects-container .project-container .project-blurb {
-    margin-top: 0rem;
   }
   #site-body footer {
     height: 20vh;

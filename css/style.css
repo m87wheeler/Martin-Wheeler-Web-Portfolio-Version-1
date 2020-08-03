@@ -976,6 +976,79 @@ body {
   color: #fdfdfd;
 }
 
+#site-body #contact {
+  width: 100%;
+  height: auto;
+  min-height: 80vh;
+  padding-bottom: 2rem;
+  background: #476763;
+}
+
+#site-body #contact h3 {
+  color: #fdfdfd;
+}
+
+#site-body #contact #contact-form {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+#site-body #contact #contact-form input,
+#site-body #contact #contact-form textarea {
+  width: 100%;
+  height: auto;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  border: 3px solid #ee681e;
+}
+
+#site-body #contact #contact-form textarea {
+  min-height: 30vh;
+}
+
+#site-body #contact #contact-form .submit-form {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  padding: 3px;
+  z-index: 0;
+}
+
+#site-body #contact #contact-form .submit-form .submit-form-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  background: #ee681e;
+  color: #fdfdfd;
+  z-index: 1;
+}
+
+#site-body #contact #contact-form .submit-form .submit-form-shadow {
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  width: calc(10rem + 10px);
+  height: 3rem;
+  background: #476763;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  z-index: -3;
+}
+
 #site-body #blog-posts .blog-short-container,
 #site-body #blog-list .blog-short-container {
   width: 335px;

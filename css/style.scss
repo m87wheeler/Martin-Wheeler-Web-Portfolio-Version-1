@@ -227,19 +227,6 @@ body {
     }
   }
 
-  // .view-portfolio::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 100%;
-  //   transform: rotate(-90deg) translateY(-50%);
-  //   left: 50%;
-  //   width: 0;
-  //   height: 0;
-  //   border-right: 1rem solid $darkOrange;
-  //   border-top: 0.5rem solid transparent;
-  //   border-bottom: 0.5rem solid transparent;
-  // }
-
   .view-portfolio-shadow {
     position: absolute;
     left: 50%;
@@ -250,19 +237,6 @@ body {
     background: $grey;
     filter: brightness(80%);
   }
-
-  // .view-portfolio-shadow::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 98%;
-  //   transform: rotate(-90deg) translateY(-50%);
-  //   left: 50%;
-  //   width: 0;
-  //   height: 0;
-  //   border-right: calc(1.2rem) solid $grey;
-  //   border-top: calc(0.6rem) solid transparent;
-  //   border-bottom: calc(0.6rem) solid transparent;
-  // }
 
   .drop-line {
     position: fixed;
@@ -841,6 +815,78 @@ body {
     }
   }
 
+  #contact {
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    padding-bottom: 2rem;
+    background: $grey;
+
+    h3 {
+      color: $whiteText;
+    }
+
+    #contact-form {
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+      padding: 1rem;
+
+      input,
+      textarea {
+        width: 100%;
+        height: auto;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        font-size: 1rem;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        background: #fff;
+        border: 3px solid $darkOrange;
+      }
+
+      textarea {
+        min-height: 30vh;
+      }
+
+      .submit-form {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 10rem;
+        height: 3rem;
+        border: none;
+        padding: 3px;
+        z-index: 0;
+
+        .submit-form-text {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3rem;
+          line-height: 3rem;
+          text-align: center;
+          background: $darkOrange;
+          color: $whiteText;
+          z-index: 1;
+        }
+
+        .submit-form-shadow {
+          position: absolute;
+          top: 5px;
+          left: -5px;
+          width: calc(10rem + 10px);
+          height: 3rem;
+          background: $grey;
+          filter: brightness(80%);
+          z-index: -3;
+        }
+      }
+    }
+  }
+
   #blog-posts,
   #blog-list {
     .blog-short-container {
@@ -1268,14 +1314,6 @@ body {
       width: calc(15rem + 10px);
       height: 4.5rem;
     }
-
-    // .view-portfolio-shadow::before {
-    //   display: block;
-    //   top: 92%;
-    //   border-right: calc(2.4rem) solid $grey;
-    //   border-top: calc(1.2rem) solid transparent;
-    //   border-bottom: calc(1.2rem) solid transparent;
-    // }
   }
 
   #site-body {

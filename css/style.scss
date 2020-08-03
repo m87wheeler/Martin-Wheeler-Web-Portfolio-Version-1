@@ -83,7 +83,7 @@ html {
   width: 100%;
   height: 100vh;
   background: var(--grey);
-  z-index: 3;
+  z-index: 9999;
 
   @keyframes fade-in {
     from {
@@ -747,6 +747,7 @@ html {
 
     #about {
       position: relative;
+      z-index: 0;
 
       .portfolio-image-container {
         position: relative;
@@ -795,15 +796,9 @@ html {
             width: 100%;
             height: auto;
             margin-top: -25%;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
             background: var(--primary-background);
             z-index: 99;
->>>>>>> Stashed changes
-=======
             background: var(--primary-background);
->>>>>>> a2c67a3cd65d8ee96873f44d34e8957f344a8d6d
           }
         }
       }

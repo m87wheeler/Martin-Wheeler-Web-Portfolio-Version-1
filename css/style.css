@@ -84,7 +84,7 @@ html #site-body main section h3,
   width: 100%;
   height: 100vh;
   background: var(--grey);
-  z-index: 3;
+  z-index: 9999;
 }
 
 @-webkit-keyframes fade-in {
@@ -921,6 +921,7 @@ html #site-body main section h3,
 
 #site-body main #about {
   position: relative;
+  z-index: 0;
 }
 
 #site-body main #about .portfolio-image-container {
@@ -972,15 +973,9 @@ html #site-body main section h3,
   width: 100%;
   height: auto;
   margin-top: -25%;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
   background: var(--primary-background);
   z-index: 99;
->>>>>>> Stashed changes
-=======
   background: var(--primary-background);
->>>>>>> a2c67a3cd65d8ee96873f44d34e8957f344a8d6d
 }
 
 #site-body main #stack {

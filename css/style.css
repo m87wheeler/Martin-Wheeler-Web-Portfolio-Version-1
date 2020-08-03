@@ -19,7 +19,8 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  color: #050709;
+  background: #012320;
+  color: #fdfdfd;
 }
 
 .bold-head, #site-body main section h3 {
@@ -555,9 +556,9 @@ body {
 #site-body header .main-nav .dropdown-back {
   position: fixed;
   left: 0;
-  top: -450px;
+  top: -90vh;
   width: 100%;
-  height: 445px;
+  height: 90vh;
   background-color: #476763;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -566,7 +567,7 @@ body {
 
 #site-body header .main-nav .dropdown-back .dropdown-shape {
   position: absolute;
-  bottom: -370px;
+  bottom: -90vh;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -585,7 +586,7 @@ body {
   position: absolute;
   top: 70px;
   left: 0;
-  height: 370px;
+  height: 90vh;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -621,7 +622,7 @@ body {
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(1) {
-  top: 43px;
+  top: 6vh;
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(1) a {
@@ -629,7 +630,7 @@ body {
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(2) {
-  top: 125px;
+  top: 18vh;
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(2) a {
@@ -637,7 +638,7 @@ body {
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(3) {
-  top: 207px;
+  top: 30vh;
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(3) a {
@@ -645,11 +646,30 @@ body {
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(4) {
-  top: 289px;
+  top: 42vh;
 }
 
 #site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(4) a {
   color: #aeb974;
+}
+
+#site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(5) {
+  top: 54vh;
+}
+
+#site-body header .main-nav .dropdown-back ul .mobile-li:nth-of-type(5) a {
+  color: #ec7d42;
+}
+
+#site-body header .main-nav .dropdown-back #toggle-theme {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 3rem;
+  height: 3rem;
+  background: red;
 }
 
 #site-body header .main-nav .dropdown-back .color-bars {
@@ -657,7 +677,7 @@ body {
   height: 5px;
   position: absolute;
   left: 0;
-  top: 440px;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -749,13 +769,14 @@ body {
   height: 95%;
   border-radius: 100%;
   overflow: hidden;
-  border: 5px solid white;
+  border: 5px solid #012320;
 }
 
 #site-body main #about .portfolio-image-container .portfolio-image img {
   width: 100%;
   height: auto;
   margin-top: -25%;
+  background: #012320;
 }
 
 #site-body main #stack {
@@ -796,8 +817,13 @@ body {
           transform: translateX(-50%);
   width: auto;
   max-height: 120px;
-  background: white;
+  background: transparent;
   cursor: pointer;
+}
+
+#site-body main #stack .stack-container .lang-container .black-icon {
+  -webkit-filter: brightness(8000%);
+          filter: brightness(8000%);
 }
 
 #site-body main #stack .stack-container .lang-container p {
@@ -808,7 +834,7 @@ body {
   font-weight: 700;
   padding: 0.5rem 0 2rem;
   font-size: 1.5rem;
-  color: rgba(5, 7, 9, 0.8);
+  color: rgba(253, 253, 253, 0.8);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-user-select: none;
@@ -854,7 +880,7 @@ body {
   left: 5px;
   width: calc(100% - 10px);
   height: calc(100% - 10px);
-  border: 5px solid white;
+  border: 5px solid #012320;
 }
 
 #site-body #projects #projects-container .project-container .background-img .project-link {
@@ -973,7 +999,7 @@ body {
   width: calc(100% - 2rem);
   line-height: 1.5rem;
   text-align: center;
-  color: #fdfdfd;
+  color: #050709;
 }
 
 #site-body #contact {
@@ -981,11 +1007,6 @@ body {
   height: auto;
   min-height: 80vh;
   padding-bottom: 2rem;
-  background: #476763;
-}
-
-#site-body #contact h3 {
-  color: #fdfdfd;
 }
 
 #site-body #contact #contact-form {
@@ -1005,12 +1026,38 @@ body {
   font-size: 1rem;
   padding: 0.75rem;
   margin-bottom: 0.5rem;
-  background: #fff;
-  border: 3px solid #ee681e;
+  color: #fdfdfd;
+  background: #012320;
+  border: 3px solid #ec7d42;
 }
 
 #site-body #contact #contact-form textarea {
   min-height: 30vh;
+}
+
+#site-body #contact #contact-form input:focus,
+#site-body #contact #contact-form textarea:focus {
+  border: 3px solid #f1db7b;
+}
+
+#site-body #contact #contact-form input::-webkit-input-placeholder,
+#site-body #contact #contact-form textarea::-webkit-input-placeholder {
+  color: #dcdcdc;
+}
+
+#site-body #contact #contact-form input:-ms-input-placeholder,
+#site-body #contact #contact-form textarea:-ms-input-placeholder {
+  color: #dcdcdc;
+}
+
+#site-body #contact #contact-form input::-ms-input-placeholder,
+#site-body #contact #contact-form textarea::-ms-input-placeholder {
+  color: #dcdcdc;
+}
+
+#site-body #contact #contact-form input::placeholder,
+#site-body #contact #contact-form textarea::placeholder {
+  color: #dcdcdc;
 }
 
 #site-body #contact #contact-form .submit-form {
@@ -1030,10 +1077,12 @@ body {
   left: 0;
   width: 100%;
   height: 3rem;
-  line-height: 3rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 3.2rem;
   text-align: center;
-  background: #ee681e;
-  color: #fdfdfd;
+  background: #ec7d42;
+  color: #050709;
   z-index: 1;
 }
 
@@ -1043,9 +1092,7 @@ body {
   left: -5px;
   width: calc(10rem + 10px);
   height: 3rem;
-  background: #476763;
-  -webkit-filter: brightness(80%);
-          filter: brightness(80%);
+  background: #001210;
   z-index: -3;
 }
 
@@ -1058,7 +1105,7 @@ body {
 
 #site-body #blog-posts .blog-short-container a,
 #site-body #blog-list .blog-short-container a {
-  color: #050709;
+  color: #fdfdfd;
   text-decoration: none;
 }
 
@@ -1217,7 +1264,7 @@ body {
           transform: translateX(-50%);
   width: 70px;
   height: 70px;
-  background: #ee681e;
+  background: #ec7d42;
   cursor: pointer;
   z-index: 1;
 }
@@ -1252,9 +1299,7 @@ body {
           transform: translateX(-50%);
   width: 78px;
   height: 39px;
-  background: #476763;
-  -webkit-filter: brightness(80%);
-          filter: brightness(80%);
+  background: #001210;
   z-index: 0;
 }
 
@@ -1587,7 +1632,7 @@ body {
     font-weight: 400;
     letter-spacing: 0.1rem;
     text-align: center;
-    color: #050709;
+    color: #fdfdfd;
   }
   #landing-page h1 .header-lg {
     display: block;

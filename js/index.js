@@ -31,7 +31,7 @@ let navOpen = false
 // ***** dropdown on hamburger click *****
 const navDropdown = bool => {
   const DROPDOWN = document.querySelector(".dropdown-back")
-  bool ? (DROPDOWN.style.top = "0px") : (DROPDOWN.style.top = "-450px")
+  bool ? (DROPDOWN.style.top = "0px") : (DROPDOWN.style.top = "-90vh")
 }
 
 // ***** animate dropdown elements *****
@@ -42,7 +42,7 @@ const animateDropdownElements = bool => {
     SHAPE.style.bottom = "0"
   } else {
     setTimeout(() => {
-      SHAPE.style.bottom = "-380px"
+      SHAPE.style.bottom = "-90vh"
     }, 50)
   }
 
@@ -394,10 +394,6 @@ const generateColorDots = parent => {
   let xDots = Math.floor(containerWidth / dotDimensions.totalWidth())
   let yDots = Math.floor(containerHeight / dotDimensions.totalHeight())
   let totalDots = xDots * yDots
-
-  // console.log(`Dots horizontally: ${xDots}`)
-  // console.log(`Dots vertically: ${yDots}`)
-  // console.log(`Total Dots: ${totalDots}`)
 
   let dotContainer = document.createElement("div")
   dotContainer.classList.add("dot-container")

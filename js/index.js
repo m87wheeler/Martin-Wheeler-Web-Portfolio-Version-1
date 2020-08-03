@@ -441,3 +441,36 @@ languageContainers.forEach(container => {
     false
   )
 })
+
+// ***** toggle theme *****
+const THEME_TOGGLE = document.querySelector("input[name=theme]")
+const THEME_TOGGLE_CONTAINER = document.querySelector("#toggle-theme")
+window.addEventListener(
+  "scroll",
+  () => {
+    window.scrollY > window.innerHeight
+      ? (THEME_TOGGLE_CONTAINER.style.opacity = "1")
+      : (THEME_TOGGLE_CONTAINER.style.opacity = "0")
+  },
+  false
+)
+
+const trans = () => {
+  document.documentElement.classList.add("transition")
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("transition")
+  }, 1000)
+}
+THEME_TOGGLE.addEventListener(
+  "change",
+  () => {
+    if (THEME_TOGGLE.checked) {
+      trans()
+      document.documentElement.setAttribute("data-theme", "dark")
+    } else {
+      trans()
+      document.documentElement.setAttribute("data-theme", "light")
+    }
+  },
+  false
+)

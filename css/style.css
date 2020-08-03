@@ -672,7 +672,7 @@ html #site-body main section h3,
   height: 70px;
   width: 100%;
   background-color: var(--grey);
-  z-index: 100;
+  z-index: 9999;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }

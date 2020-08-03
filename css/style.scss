@@ -587,6 +587,7 @@ body {
         height: 250px;
         overflow: hidden;
         border-radius: 100%;
+        z-index: 1;
 
         .image-border-section {
           position: absolute;
@@ -626,6 +627,11 @@ body {
             width: 100%;
             height: auto;
             margin-top: -25%;
+<<<<<<< Updated upstream
+=======
+            background: var(--primary-background);
+            z-index: 99;
+>>>>>>> Stashed changes
           }
         }
       }

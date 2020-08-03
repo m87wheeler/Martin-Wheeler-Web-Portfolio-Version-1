@@ -31,7 +31,7 @@ let navOpen = false
 // ***** dropdown on hamburger click *****
 const navDropdown = bool => {
   const DROPDOWN = document.querySelector(".dropdown-back")
-  bool ? (DROPDOWN.style.top = "0px") : (DROPDOWN.style.top = "-450px")
+  bool ? (DROPDOWN.style.top = "0px") : (DROPDOWN.style.top = "-90vh")
 }
 
 // ***** animate dropdown elements *****
@@ -42,7 +42,7 @@ const animateDropdownElements = bool => {
     SHAPE.style.bottom = "0"
   } else {
     setTimeout(() => {
-      SHAPE.style.bottom = "-380px"
+      SHAPE.style.bottom = "-90vh"
     }, 50)
   }
 
@@ -395,10 +395,6 @@ const generateColorDots = parent => {
   let yDots = Math.floor(containerHeight / dotDimensions.totalHeight())
   let totalDots = xDots * yDots
 
-  // console.log(`Dots horizontally: ${xDots}`)
-  // console.log(`Dots vertically: ${yDots}`)
-  // console.log(`Total Dots: ${totalDots}`)
-
   let dotContainer = document.createElement("div")
   dotContainer.classList.add("dot-container")
   parent.appendChild(dotContainer)
@@ -445,3 +441,36 @@ languageContainers.forEach(container => {
     false
   )
 })
+
+// ***** toggle theme *****
+const THEME_TOGGLE = document.querySelector("input[name=theme]")
+const THEME_TOGGLE_CONTAINER = document.querySelector("#toggle-theme")
+window.addEventListener(
+  "scroll",
+  () => {
+    window.scrollY > window.innerHeight
+      ? (THEME_TOGGLE_CONTAINER.style.opacity = "1")
+      : (THEME_TOGGLE_CONTAINER.style.opacity = "0")
+  },
+  false
+)
+
+const trans = () => {
+  document.documentElement.classList.add("transition")
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("transition")
+  }, 1000)
+}
+THEME_TOGGLE.addEventListener(
+  "change",
+  () => {
+    if (THEME_TOGGLE.checked) {
+      trans()
+      document.documentElement.setAttribute("data-theme", "dark")
+    } else {
+      trans()
+      document.documentElement.setAttribute("data-theme", "light")
+    }
+  },
+  false
+)

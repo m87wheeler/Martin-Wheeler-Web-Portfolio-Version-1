@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-gb" data-theme="light">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-145904610-3"
@@ -77,6 +76,19 @@
       <div class="drop-line"></div>
     </section>
     <section id="site-body">
+      <div id="toggle-theme">
+        <label for="switch" class="toggle-background">
+          <div class="theme-text">Dark Mode</div>
+          <div class="green-sc"></div>
+          <input type="checkbox" id="switch" name="theme" />
+          <div class="rotating-circle">
+            <div class="light-circle">
+              <div class="inner-circle"></div>
+            </div>
+            <div class="dark-circle"></div>
+          </div>
+        </label>
+      </div>
       <header>
         <nav class="main-nav">
           <div class="nav-hamburger">
@@ -126,9 +138,9 @@
               <li class="mobile-li">
                 <a href="#contact">CONTACT</a>
               </li>
-              <!-- <li class="mobile-li">
+              <li class="mobile-li">
                 <a href="#blog">BLOG</a>
-              </li> -->
+              </li>
             </ul>
             <div class="color-bars">
               <div class="color-bar color-bar-1"></div>
@@ -191,7 +203,11 @@
               <p>React</p>
             </div>
             <div class="lang-container">
-              <img src="./images/vectors/inkscape.png" alt="Inkscape" />
+              <img
+                src="./images/vectors/inkscape.png"
+                alt="Inkscape"
+                class="black-icon"
+              />
               <p>Inkscape</p>
             </div>
             <div class="lang-container">
@@ -206,6 +222,15 @@
         </section>
         <section id="contact">
           <h3>CONTACT ME</h3>
+          <p class="introduction-text section-paragraph">
+            It would be great to hear from you! Maybe you want to work on a
+            project together, ask me a question about what I can do for you, or
+            simply give me some feedback!
+          </p>
+          <p class="introduction-text section-paragraph">
+            <strong>Fill in the form</strong> and I'll get back to you very
+            soon!
+          </p>
           <form
             action="https://formspree.io/xnqgwbnz"
             method="POST"

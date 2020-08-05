@@ -258,6 +258,28 @@ html {
     background: var(--dark-orange);
     z-index: 99999;
 
+    @keyframes grow-and-fade {
+      from {
+        transform: scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: scale(1.25, 1.75);
+        opacity: 0;
+      }
+    }
+
+    .call-to-action {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--dark-orange);
+      animation: grow-and-fade 3s infinite;
+      animation-delay: 3s;
+    }
+
     .view-portfolio-text {
       position: absolute;
       top: 50%;
@@ -358,6 +380,7 @@ html {
       height: 4rem;
       border-radius: 100%;
       z-index: 10;
+      cursor: pointer;
 
       .theme-text {
         display: none;
@@ -1671,6 +1694,10 @@ html {
     height: 100vh;
     min-height: 100vh;
     font-size: 1.25rem;
+
+    #toggle-theme {
+      opacity: 1;
+    }
 
     header {
       margin-bottom: 35px;

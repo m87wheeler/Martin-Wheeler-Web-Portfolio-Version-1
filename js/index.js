@@ -448,7 +448,7 @@ const THEME_TOGGLE_CONTAINER = document.querySelector("#toggle-theme")
 window.addEventListener(
   "scroll",
   () => {
-    if (window.getBoundingClientRect().width < 1320) {
+    if (window.innerWidth < 1320) {
       window.scrollY > window.innerHeight
         ? (THEME_TOGGLE_CONTAINER.style.opacity = "1")
         : (THEME_TOGGLE_CONTAINER.style.opacity = "0")

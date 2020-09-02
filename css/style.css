@@ -508,6 +508,7 @@ html #site-body main section h3,
 }
 
 #site-body #toggle-theme .toggle-background .toggle-text {
+  display: none;
   position: absolute;
   top: -8.5vh;
   left: -1.5rem;

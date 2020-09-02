@@ -494,3 +494,17 @@ THEME_TOGGLE.addEventListener(
   },
   false
 )
+
+// ***** animate prompt text *****
+const TEXT_SPAN = document.querySelectorAll(".toggle-text span")
+setTimeout(() => {
+  TEXT_SPAN[0].style.left = "0"
+  setTimeout(() => {
+    TEXT_SPAN[1].style.left = "0"
+  }, 100)
+  setTimeout(() => {
+    TEXT_SPAN.forEach(span => {
+      span.style.left = "-8rem"
+    })
+  }, 10000)
+}, 10000)

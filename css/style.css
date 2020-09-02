@@ -507,8 +507,25 @@ html #site-body main section h3,
   cursor: pointer;
 }
 
-#site-body #toggle-theme .toggle-background .theme-text {
-  display: none;
+#site-body #toggle-theme .toggle-background .toggle-text {
+  position: absolute;
+  top: -8.5vh;
+  left: -1.5rem;
+  width: 7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  overflow: hidden;
+}
+
+#site-body #toggle-theme .toggle-background .toggle-text span {
+  display: block;
+  position: relative;
+  left: -8rem;
+  -webkit-transition: left 0.3s ease;
+  transition: left 0.3s ease;
 }
 
 #site-body #toggle-theme .toggle-background .green-sc {

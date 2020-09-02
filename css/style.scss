@@ -382,8 +382,23 @@ html {
       z-index: 10;
       cursor: pointer;
 
-      .theme-text {
-        display: none;
+      .toggle-text {
+        position: absolute;
+        top: -8.5vh;
+        left: -1.5rem;
+        width: 7rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: right;
+        transform: rotate(90deg);
+        overflow: hidden;
+
+        span {
+          display: block;
+          position: relative;
+          left: -8rem;
+          transition: left 0.3s ease;
+        }
       }
 
       .green-sc {

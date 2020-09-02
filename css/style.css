@@ -1026,7 +1026,7 @@ html #site-body main section h3,
 #site-body main #stack {
   width: 100%;
   height: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #site-body main #stack .stack-container {
@@ -1232,8 +1232,6 @@ html #site-body main section h3,
   width: 100%;
   margin-top: -8rem;
   height: 8rem;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 4rem, 50% 100%, 50% 100%, 0 4rem);
-          clip-path: polygon(0 0, 100% 0, 100% 4rem, 50% 100%, 50% 100%, 0 4rem);
   -webkit-transition: margin 0.3s ease-in-out;
   transition: margin 0.3s ease-in-out;
   z-index: -1;
@@ -1640,15 +1638,8 @@ html #site-body main section h3,
     width: 100%;
     height: auto;
   }
-  #site-body main #projects #projects-container .project-container {
-    width: 28rem;
-    height: 15.75rem;
-    padding: 0;
-    margin: 0 auto 2rem;
-  }
-  #site-body main #projects #projects-container .project-container .project-blurb {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  #site-body main #projects #projects-container .project-container .project-blurb .blurb-text {
+    padding: 0 3rem;
   }
   #site-body footer {
     margin-top: 5rem;
@@ -1768,12 +1759,15 @@ html #site-body main section h3,
     width: 100%;
     height: auto;
   }
+  #site-body #projects #projects-container .project-container {
+    cursor: pointer;
+  }
   #site-body #projects #projects-container .project-container .project-blurb {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
   #site-body #projects #projects-container .project-container .project-link a {
     width: 15rem;
-    line-height: 2rem;
+    line-height: 1rem;
     font-size: 1.25rem;
     padding: 0.25rem 0.5rem;
   }

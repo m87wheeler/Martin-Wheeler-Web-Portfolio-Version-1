@@ -831,7 +831,7 @@ html {
     #stack {
       width: 100%;
       height: auto;
-      overflow-x: hidden;
+      overflow: hidden;
 
       .stack-container {
         width: 100%;
@@ -994,14 +994,6 @@ html {
           width: 100%;
           margin-top: -8rem;
           height: 8rem;
-          clip-path: polygon(
-            0 0,
-            100% 0,
-            100% 4rem,
-            50% 100%,
-            50% 100%,
-            0 4rem
-          );
           transition: margin 0.3s ease-in-out;
           z-index: -1;
 
@@ -1390,14 +1382,10 @@ html {
 
         #projects-container {
           .project-container {
-            width: 28rem;
-            height: 15.75rem;
-            padding: 0;
-            margin: 0 auto 2rem;
-
             .project-blurb {
-              font-size: 1rem;
-              line-height: 1.5rem;
+              .blurb-text {
+                padding: 0 3rem;
+              }
             }
           }
         }
@@ -1536,14 +1524,15 @@ html {
 
       #projects-container {
         .project-container {
+          cursor: pointer;
           .project-blurb {
-            font-size: 1.25rem;
+            font-size: 1rem;
           }
 
           .project-link {
             a {
               width: 15rem;
-              line-height: 2rem;
+              line-height: 1rem;
               font-size: 1.25rem;
               padding: 0.25rem 0.5rem;
             }

@@ -86,6 +86,24 @@ NAV_BUTTON.addEventListener(
   false
 )
 
+// ***** hide navbar on link selection *****
+const NAV_LINKS = document.querySelectorAll(".mobile-li")
+NAV_LINKS.forEach(link =>
+  link.addEventListener(
+    "click",
+    () => {
+      navOpen
+        ? ((navOpen = !navOpen),
+          navDropdown(navOpen),
+          document
+            .querySelectorAll(".bar")
+            .forEach(bar => bar.classList.remove("open")))
+        : null
+    },
+    false
+  )
+)
+
 // ***** hide nav on scroll *****
 window.addEventListener(
   "scroll",

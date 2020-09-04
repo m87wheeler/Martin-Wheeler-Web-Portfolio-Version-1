@@ -234,7 +234,10 @@ LEAVE_MODAL_BUTTON.addEventListener("click", exitModal, false)
 const populateModal = slug => {
   const projectObj = projectDataArray[0].find(post => post.slug === slug)
 
-  MODAL_IMAGE.setAttribute("src", projectObj.metadata.projectimage.url)
+  MODAL_IMAGE.setAttribute(
+    "src",
+    `${projectObj.metadata.projectimage.url}?auto=format,compress&w=800&dpr=2`
+  )
   MODAL_TITLE.textContent = projectObj.title
   MODAL_WORKTYPE.textContent = projectObj.metadata.work_type
   MODAL_URL.setAttribute("href", projectObj.metadata.projectLink)
@@ -247,7 +250,7 @@ const populateModal = slug => {
   langArr.forEach(lang => {
     if (projectObj.metadata[lang].imgix_url) {
       const img = document.createElement("img")
-      img.src = projectObj.metadata[lang].imgix_url
+      img.src = `${projectObj.metadata[lang].imgix_url}?auto=format,compress&w=200&dpr=2`
       MODAL_LANG.appendChild(img)
     }
   })
@@ -273,7 +276,7 @@ const createProjectWindow = (post, containerId) => {
   projectContainer.appendChild(backgroundImgContainer)
 
   let backgroundImg = document.createElement("img")
-  backgroundImg.src = post.metadata.projectimage.imgix_url
+  backgroundImg.src = `${post.metadata.projectimage.imgix_url}?auto=format,compress&w=1000&dpr=2`
   backgroundImgContainer.appendChild(backgroundImg)
 
   document.querySelector(containerId).appendChild(projectContainer)

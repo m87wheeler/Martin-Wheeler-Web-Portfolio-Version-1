@@ -241,6 +241,8 @@ const populateModal = slug => {
   MODAL_TITLE.textContent = projectObj.title
   MODAL_WORKTYPE.textContent = projectObj.metadata.work_type
   MODAL_URL.setAttribute("href", projectObj.metadata.projectlink)
+  console.log(projectObj.metadata.projectlink)
+  console.log(MODAL_URL)
   MODAL_TEXT.innerHTML = projectObj.content
 
   const langArr = Object.keys(projectObj.metadata).filter(property =>

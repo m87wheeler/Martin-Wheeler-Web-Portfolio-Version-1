@@ -1255,6 +1255,8 @@ html #site-body main section h3,
 }
 
 #site-body #projects #project-modal #inner-modal #lang-container #lang-images {
+  width: 50%;
+  margin-left: 25%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1262,13 +1264,14 @@ html #site-body main section h3,
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 #site-body #projects #project-modal #inner-modal #lang-container #lang-images img {
-  height: 4rem;
+  width: 4rem;
+  margin: 0.5rem;
 }
 
 #site-body #projects #project-modal #inner-modal #about-container {
@@ -1818,78 +1821,9 @@ html #site-body main section h3,
   #site-body #projects #projects-container .project-container:nth-of-type(odd) {
     margin-right: 2.5%;
   }
-  #site-body #projects #project-modal {
-    width: 50%;
-  }
   #site-body #projects #project-modal #inner-modal {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    -webkit-column-gap: 3rem;
-            column-gap: 3rem;
-        grid-template-areas: " image image" " details languages " " about about" "button button";
-  }
-  #site-body #projects #project-modal #inner-modal .image-container {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: image;
     width: 70%;
     margin-left: 15%;
-  }
-  #site-body #projects #project-modal #inner-modal #project-details {
-    width: 100%;
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    grid-area: details;
-  }
-  #site-body #projects #project-modal #inner-modal #lang-container {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-    grid-area: languages;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    padding-right: 1rem;
-  }
-  #site-body #projects #project-modal #inner-modal #lang-container h4 {
-    display: none;
-  }
-  #site-body #projects #project-modal #inner-modal #lang-container #lang-images {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0.5rem;
-  }
-  #site-body #projects #project-modal #inner-modal #lang-container #lang-images img {
-    height: 4rem;
-  }
-  #site-body #projects #project-modal #inner-modal #about-container {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: about;
-    width: 70%;
-    margin: 3rem 15%;
-  }
-  #site-body #projects #project-modal #inner-modal #leave-modal {
-    -ms-grid-row: 4;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: button;
-    margin-bottom: 25vh;
-    cursor: pointer;
-  }
-  #site-body #projects #project-modal #outer-modal {
-    display: block;
-    position: fixed;
-    right: -100vw;
-    top: 70px;
-    width: 50%;
-    height: calc(100vh - 70px);
-    background: transparent;
   }
   #site-body footer {
     height: 20vh;
@@ -1898,6 +1832,13 @@ html #site-body main section h3,
   .coming-soon {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+@media (min-width: 1000px) {
+  #project-modal #inner-modal {
+    width: 90%;
+    margin-left: 10%;
   }
 }
 
@@ -2089,6 +2030,61 @@ html #site-body main section h3,
   }
   #site-body #projects #projects-container .project-container .project-link a {
     line-height: 0.75rem;
+  }
+  #site-body #projects #project-modal {
+    width: 50%;
+  }
+  #site-body #projects #project-modal #inner-modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  #site-body #projects #project-modal #inner-modal .image-container {
+    grid-area: image;
+    width: 80%;
+    margin-left: 10%;
+  }
+  #site-body #projects #project-modal #inner-modal #project-details {
+    width: 90%;
+    margin-left: 5%;
+  }
+  #site-body #projects #project-modal #inner-modal #lang-container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    padding-right: 1rem;
+  }
+  #site-body #projects #project-modal #inner-modal #lang-container h4 {
+    display: none;
+  }
+  #site-body #projects #project-modal #inner-modal #lang-container #lang-images {
+    margin-top: 2rem;
+  }
+  #site-body #projects #project-modal #inner-modal #lang-container #lang-images img {
+    height: 4rem;
+  }
+  #site-body #projects #project-modal #inner-modal #about-container {
+    grid-area: about;
+    width: 70%;
+    margin: 3rem 15%;
+  }
+  #site-body #projects #project-modal #inner-modal #leave-modal {
+    grid-area: button;
+    margin-bottom: 25vh;
+    cursor: pointer;
+  }
+  #site-body #projects #project-modal #outer-modal {
+    display: block;
+    position: fixed;
+    right: -100vw;
+    top: 70px;
+    width: 50%;
+    height: calc(100vh - 70px);
+    background: transparent;
   }
   #site-body footer {
     height: 20vh;

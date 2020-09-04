@@ -1039,12 +1039,16 @@ html {
           }
 
           #lang-images {
+            width: 50%;
+            margin-left: 25%;
             display: flex;
             flex-flow: row wrap;
-            justify-content: space-between;
+            justify-content: space-evenly;
 
             img {
-              height: 4rem;
+              // height: 4rem;
+              width: 4rem;
+              margin: 0.5rem;
             }
           }
         }
@@ -1600,71 +1604,9 @@ html {
         }
       }
       #project-modal {
-        width: 50%;
-
         #inner-modal {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          column-gap: 3rem;
-          grid-template-areas:
-            " image image"
-            " details languages "
-            " about about"
-            "button button";
-
-          .image-container {
-            grid-area: image;
-            width: 70%;
-            margin-left: 15%;
-          }
-
-          #project-details {
-            width: 100%;
-            grid-area: details;
-          }
-
-          #lang-container {
-            grid-area: languages;
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            padding-right: 1rem;
-
-            h4 {
-              display: none;
-            }
-
-            #lang-images {
-              display: grid;
-              grid-template-columns: repeat(4, 1fr);
-              grid-gap: 0.5rem;
-
-              img {
-                height: 4rem;
-              }
-            }
-          }
-          #about-container {
-            grid-area: about;
-            width: 70%;
-            margin: 3rem 15%;
-          }
-
-          #leave-modal {
-            grid-area: button;
-            margin-bottom: 25vh;
-            cursor: pointer;
-          }
-        }
-
-        #outer-modal {
-          display: block;
-          position: fixed;
-          right: -100vw;
-          top: 70px;
-          width: 50%;
-          height: calc(100vh - 70px);
-          background: transparent;
+          width: 70%;
+          margin-left: 15%;
         }
       }
     }
@@ -1677,6 +1619,15 @@ html {
   .coming-soon {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+@media (min-width: 1000px) {
+  #project-modal {
+    #inner-modal {
+      width: 90%;
+      margin-left: 10%;
+    }
   }
 }
 
@@ -1876,6 +1827,66 @@ html {
               line-height: 0.75rem;
             }
           }
+        }
+      }
+
+      #project-modal {
+        width: 50%;
+
+        #inner-modal {
+          display: flex;
+          flex-flow: column nowrap;
+
+          .image-container {
+            grid-area: image;
+            width: 80%;
+            margin-left: 10%;
+          }
+
+          #project-details {
+            width: 90%;
+            margin-left: 5%;
+          }
+
+          #lang-container {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            padding-right: 1rem;
+
+            h4 {
+              display: none;
+            }
+
+            #lang-images {
+              margin-top: 2rem;
+
+              img {
+                height: 4rem;
+              }
+            }
+          }
+          #about-container {
+            grid-area: about;
+            width: 70%;
+            margin: 3rem 15%;
+          }
+
+          #leave-modal {
+            grid-area: button;
+            margin-bottom: 25vh;
+            cursor: pointer;
+          }
+        }
+
+        #outer-modal {
+          display: block;
+          position: fixed;
+          right: -100vw;
+          top: 70px;
+          width: 50%;
+          height: calc(100vh - 70px);
+          background: transparent;
         }
       }
     }

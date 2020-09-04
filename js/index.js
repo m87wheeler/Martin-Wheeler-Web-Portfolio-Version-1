@@ -240,7 +240,7 @@ const populateModal = slug => {
   )
   MODAL_TITLE.textContent = projectObj.title
   MODAL_WORKTYPE.textContent = projectObj.metadata.work_type
-  MODAL_URL.setAttribute("href", projectObj.metadata.projectLink)
+  MODAL_URL.setAttribute("href", projectObj.metadata.projectlink)
   MODAL_TEXT.innerHTML = projectObj.content
 
   const langArr = Object.keys(projectObj.metadata).filter(property =>
@@ -268,7 +268,9 @@ const createProjectWindow = (post, containerId) => {
     PROJECT_MODAL.style.left = "0"
     populateModal(post.slug)
     document.body.style.overflowY = "hidden"
-    document.body.style.paddingRight = "15px"
+    window.innerWidth >= 1320
+      ? (document.body.style.paddingRight = "15px")
+      : null
   })
 
   let backgroundImgContainer = document.createElement("div")

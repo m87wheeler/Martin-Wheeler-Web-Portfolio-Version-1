@@ -191,20 +191,82 @@ const imgOrientation = imgURL => {
   }
 }
 
-// ***** dynamically generate project post windows *****
-const projectPostArray = []
+// ***** dynamically generate modal *****
+let projectDataArray = []
+const PROJECT_MODAL = document.querySelector("#project-modal")
+
+// modal elements
+const MODAL_IMAGE = document.querySelector("#modal-image")
+const MODAL_TITLE = document.querySelector("#project-header")
+const MODAL_WORKTYPE = document.querySelector("#project-worktype")
+const MODAL_URL = document.querySelector("#project-link")
+let MODAL_LANG = document.querySelector("#lang-images")
+const MODAL_TEXT = document.querySelector("#about-text")
+const LEAVE_MODAL_BUTTON = document.querySelector("#leave-modal")
+const OUTER_MODAL = document.querySelector("#outer-modal")
+
+const exitModal = () => {
+  PROJECT_MODAL.scrollTo({
+    top: "0",
+    left: "0",
+    behavior: "smooth",
+  })
+  PROJECT_MODAL.style.left = "-150vw"
+  MODAL_IMAGE.setAttribute("src", "")
+  MODAL_TITLE.textContent = ""
+  MODAL_WORKTYPE.textContent = ""
+  MODAL_URL.setAttribute("href", "")
+  MODAL_TEXT.innerHTML = ""
+
+  while (MODAL_LANG.childElementCount > 0) {
+    MODAL_LANG.removeChild(MODAL_LANG.childNodes[0])
+  }
+
+  document.body.style.overflowY = "auto"
+  document.body.style.paddingRight = "0"
+
+  OUTER_MODAL.style.right = "100vw"
+}
+
+OUTER_MODAL.addEventListener("click", exitModal, false)
+
+LEAVE_MODAL_BUTTON.addEventListener("click", exitModal, false)
+const populateModal = slug => {
+  const projectObj = projectDataArray[0].find(post => post.slug === slug)
+
+  MODAL_IMAGE.setAttribute("src", projectObj.metadata.projectimage.url)
+  MODAL_TITLE.textContent = projectObj.title
+  MODAL_WORKTYPE.textContent = projectObj.metadata.work_type
+  MODAL_URL.setAttribute("href", projectObj.metadata.projectLink)
+  MODAL_TEXT.innerHTML = projectObj.content
+
+  const langArr = Object.keys(projectObj.metadata).filter(property =>
+    property.includes("lang_")
+  )
+
+  langArr.forEach(lang => {
+    if (projectObj.metadata[lang].imgix_url) {
+      const img = document.createElement("img")
+      img.src = projectObj.metadata[lang].imgix_url
+      MODAL_LANG.appendChild(img)
+    }
+  })
+
+  OUTER_MODAL.style.right = "0"
+}
+
+// ***** updated project generator *****
+let projectPostArray = []
 const createProjectWindow = (post, containerId) => {
   let projectContainer = document.createElement("div")
   projectContainer.classList.add("project-container")
-  projectContainer.addEventListener(
-    "click",
-    () => {
-      projectContainer.children[2].style.marginTop = "0"
-      projectContainer.children[0].children[1].classList.add("project-link-pop")
-    },
-
-    false
-  )
+  projectContainer.setAttribute("value", post.slug)
+  projectContainer.addEventListener("click", () => {
+    PROJECT_MODAL.style.left = "0"
+    populateModal(post.slug)
+    document.body.style.overflowY = "hidden"
+    document.body.style.paddingRight = "15px"
+  })
 
   let backgroundImgContainer = document.createElement("div")
   backgroundImgContainer.classList.add("background-img")
@@ -213,36 +275,6 @@ const createProjectWindow = (post, containerId) => {
   let backgroundImg = document.createElement("img")
   backgroundImg.src = post.metadata.projectimage.imgix_url
   backgroundImgContainer.appendChild(backgroundImg)
-
-  let projectLinkContainer = document.createElement("div")
-  projectLinkContainer.classList.add("project-link")
-  backgroundImgContainer.appendChild(projectLinkContainer)
-
-  let projectLink = document.createElement("a")
-  projectLink.innerText = "Visit Website"
-  projectLink.href = post.metadata.projectlink
-  projectLinkContainer.appendChild(projectLink)
-
-  let slideInContainer = document.createElement("div")
-  slideInContainer.classList.add("slide-in-blocks")
-  projectContainer.appendChild(slideInContainer)
-
-  let slideInLeft = document.createElement("div")
-  slideInLeft.classList.add("slide-in-left")
-  slideInContainer.appendChild(slideInLeft)
-
-  let slideInRight = document.createElement("div")
-  slideInRight.classList.add("slide-in-right")
-  slideInContainer.appendChild(slideInRight)
-
-  let projectBlurb = document.createElement("div")
-  projectBlurb.classList.add("project-blurb")
-  projectContainer.appendChild(projectBlurb)
-
-  let blurbText = document.createElement("p")
-  blurbText.classList.add("blurb-text")
-  blurbText.innerText = post.metadata.projectblurb
-  projectBlurb.appendChild(blurbText)
 
   document.querySelector(containerId).appendChild(projectContainer)
   projectPostArray.push(projectContainer)
@@ -334,6 +366,7 @@ const fetchProjectData = () => {
   fetch(PROJECT_ENDPOINT)
     .then(res => res.json())
     .then(data => {
+      projectDataArray = [data.objects]
       data.objects.forEach(obj =>
         createProjectWindow(obj, "#projects-container")
       )
@@ -364,16 +397,7 @@ const fetchBlogData = () => {
 fetchBlogData()
 
 // ***** reset all selected project posts on scroll *****
-window.addEventListener(
-  "scroll",
-  () => {
-    projectPostArray.forEach(post => {
-      post.children[2].style.marginTop = "-8rem"
-      post.children[0].children[1].classList.remove("project-link-pop")
-    })
-  },
-  false
-)
+// ***** REMOVED *****
 
 // ***** landing page container *****
 const landingPage = document.querySelector("#landing-page")

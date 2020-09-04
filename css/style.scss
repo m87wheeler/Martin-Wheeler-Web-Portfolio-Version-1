@@ -256,7 +256,7 @@ html {
     border: 2px solid var(--dark-orange);
     padding: 3px;
     background: var(--dark-orange);
-    z-index: 99999;
+    z-index: 10;
 
     @keyframes grow-and-fade {
       from {
@@ -930,54 +930,6 @@ html {
             height: calc(100% - 10px);
             border: 5px solid var(--primary-background);
           }
-
-          .project-link {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 4.5rem;
-            height: 4.5rem;
-            background: var(--dark-orange);
-            border-radius: 100%;
-            text-align: center;
-            overflow: hidden;
-            transform-origin: center;
-            transform: scale(0, 0);
-
-            a {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              left: 0;
-              width: inherit;
-              height: auto;
-              color: var(--white);
-              font-size: 0.75rem;
-              font-weight: 700;
-              text-decoration: none;
-            }
-          }
-
-          @keyframes visit-pop {
-            0% {
-              transform: scale(0, 0);
-            }
-            99% {
-              transform: scale(1.2, 1.2);
-            }
-            100% {
-              transform: scale(1, 1);
-            }
-          }
-
-          .project-link-pop {
-            animation-name: visit-pop;
-            animation-duration: 0.3s;
-            animation-delay: 0.2s;
-            animation-iteration-count: 1;
-            animation-timing-function: ease;
-            animation-fill-mode: forwards;
-          }
         }
 
         .background-img::before {
@@ -1002,25 +954,130 @@ html {
           background: var(--dark-orange);
           z-index: -1;
         }
+      }
+    }
 
-        .project-blurb {
+    #project-modal {
+      position: fixed;
+      top: 70px;
+      left: -150vw;
+      height: calc(100vh - 70px);
+      width: 100%;
+      padding: 0 0 4rem 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background: var(--white);
+      z-index: 99999;
+      transition: left 0.3s ease-in-out;
+
+      #inner-modal {
+        .image-container {
           position: relative;
-          background: var(--green);
-          padding: 0.5rem 1rem;
           width: 100%;
-          margin-top: -8rem;
-          height: 8rem;
-          transition: margin 0.3s ease-in-out;
-          z-index: -1;
+          height: 0;
+          padding-bottom: 56.25%;
+          overflow: hidden;
 
-          .blurb-text {
+          img {
             position: absolute;
-            width: calc(100% - 2rem);
-            line-height: 1.5rem;
-            text-align: center;
-            color: var(--black);
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 100%;
           }
         }
+
+        #project-details {
+          width: 100%;
+          display: grid;
+          grid-template-rows: repeat(3, 2.5rem);
+
+          p {
+            line-height: 2.5rem;
+            padding-left: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.1rem;
+            min-width: 13rem;
+          }
+
+          p:first-of-type {
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            width: 90%;
+            background: var(--medium-orange);
+          }
+
+          p:nth-of-type(2) {
+            width: 70%;
+            background: var(--green);
+          }
+
+          p:nth-of-type(3) {
+            width: 50%;
+            background: var(--yellow);
+
+            a {
+              color: var(--black);
+              font-weight: 700;
+              text-decoration: underline;
+            }
+
+            span {
+              font-size: 1rem;
+            }
+          }
+        }
+
+        #lang-container {
+          width: 100%;
+          height: auto;
+          padding: 1rem;
+
+          h4 {
+            padding: 1rem 0;
+          }
+
+          #lang-images {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+
+            img {
+              height: 4rem;
+            }
+          }
+        }
+
+        #about-container {
+          padding: 2rem 1rem;
+
+          h4 {
+            margin-bottom: 1rem;
+          }
+
+          #about-text {
+            p {
+              font-size: 1rem;
+              line-height: 1.5rem;
+            }
+          }
+        }
+
+        #leave-modal {
+          display: block;
+          margin: 0 auto;
+          width: 10rem;
+          height: 3rem;
+          border: 2px solid var(--dark-orange);
+          padding: 3px;
+          background: var(--dark-orange);
+          color: var(--white);
+        }
+      }
+
+      #outer-modal {
+        display: none;
       }
     }
   }
@@ -1397,13 +1454,6 @@ html {
         height: auto;
 
         #projects-container {
-          .project-container {
-            .project-blurb {
-              .blurb-text {
-                padding: 0 3rem;
-              }
-            }
-          }
         }
       }
     }
@@ -1540,19 +1590,81 @@ html {
 
       #projects-container {
         .project-container {
+          width: 80%;
+          margin-left: 10%;
           cursor: pointer;
-          .project-blurb {
-            font-size: 1rem;
+
+          &:nth-of-type(odd) {
+            margin-right: 2.5%;
+          }
+        }
+      }
+      #project-modal {
+        width: 50%;
+
+        #inner-modal {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 3rem;
+          grid-template-areas:
+            " image image"
+            " details languages "
+            " about about"
+            "button button";
+
+          .image-container {
+            grid-area: image;
+            width: 70%;
+            margin-left: 15%;
           }
 
-          .project-link {
-            a {
-              width: 15rem;
-              line-height: 1rem;
-              font-size: 1.25rem;
-              padding: 0.25rem 0.5rem;
+          #project-details {
+            width: 100%;
+            grid-area: details;
+          }
+
+          #lang-container {
+            grid-area: languages;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            padding-right: 1rem;
+
+            h4 {
+              display: none;
+            }
+
+            #lang-images {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              grid-gap: 0.5rem;
+
+              img {
+                height: 4rem;
+              }
             }
           }
+          #about-container {
+            grid-area: about;
+            width: 70%;
+            margin: 3rem 15%;
+          }
+
+          #leave-modal {
+            grid-area: button;
+            margin-bottom: 25vh;
+            cursor: pointer;
+          }
+        }
+
+        #outer-modal {
+          display: block;
+          position: fixed;
+          right: -100vw;
+          top: 70px;
+          width: 50%;
+          height: calc(100vh - 70px);
+          background: transparent;
         }
       }
     }
@@ -1755,6 +1867,8 @@ html {
         justify-content: space-between;
 
         .project-container {
+          width: 48%;
+          margin: 1rem 0;
           overflow: visible;
 
           .project-link {
